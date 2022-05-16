@@ -1,0 +1,11 @@
+.Items{
+  left: 0;
+  scroll-behavior: smooth;
+  width: 70vw;
+  padding: 6vh 0 0 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: wrap;
+  box-sizing: content-box;
+  margin: 12px;
+}
