@@ -1,10 +1,20 @@
-import React from 'react'
-import Items from './Items/Items'
+import React, {useState} from 'react';
+import SideTab from '../UI/SideTab';
+import Items from './Items/Items';
 
 const Browse = () => {
-  return (
-    <Items />
-  )
-}
+  const [showSideTab, setShowSideTab] = useState(false);
 
-export default Browse
+  const toggleSideTab = () => {
+    setShowSideTab(!showSideTab);
+  }
+  
+  return (
+    <>
+      <SideTab isShown={showSideTab}/>
+      <Items toggleTab={toggleSideTab}/>
+    </>
+  );
+};
+
+export default Browse;

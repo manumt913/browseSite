@@ -1,0 +1,75 @@
+.SideTab {
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+  position: fixed;
+  margin-top: 5vh;
+  height: 93.4%;
+  width: 31vw;
+  background-color: #f8f8f8c0;
+  border-left: 2px solid #c2c2c2;
+  right: 0;
+  box-shadow: 5px 5px 8px 8px #00000033;
+}
+
+.Close {
+  transform: translateX(100%);
+  transition: all 0.35s ease-in
+}
+
+.Open {
+  transform: translateX(0);
+  transition: all 0.35s ease-out
+}
+
+.Image {
+  background-color: gray;
+  height: 40%;
+}
+
+.Description {
+  text-align: left;
+  margin: 20px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.lineDiv {
+  width: 80%;
+  background-color: #c2c2c2;
+  margin: 20px auto 5px auto;
+  height: 3.5px;
+  border-radius: 10px;
+
+}
+
+.StockData {
+  display: flex;
+  flex-flow: row;
+  color: gray;
+  text-align: left;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.Button {
+  background-color: #ce915f; 
+  border-radius: 3px;
+  border-color: #9e6e47;
+  color: white;
+  width: 25%;
+  margin: 25px auto;
+  padding: 18px 26px;
+  text-align: center;
+  display: inline;
+  font-size: 16px;
+}
+
+.Button:hover{
+  background-color: #b17237; 
+  cursor: pointer;
+  transform: scale(1.02, 1.03);
+  border-radius: 5px;
+  transition: all 0.1s ease-in-out;
+
+}
