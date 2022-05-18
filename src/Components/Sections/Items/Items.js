@@ -1,21 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ItemCard from './ItemCard';
 import classes from './Items.module.css';
 
-const Items = (props) => {
+const Items = (props, itemData) => {
+  const cardDisplay = itemData.map((el) => (
+    <ItemCard
+      key={el.id}
+      name={el.name}
+      price={el.price}
+      toggleTab={props.toggleTab}
+    />
+  ));
+
   return (
     <>
-      <div className={classes.Items}>
-        <ItemCard toggleTab={props.toggleTab}/>
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-      </div>
+      <div className={classes.Items}>{cardDisplay}</div>
     </>
   );
 };
