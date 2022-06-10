@@ -1,52 +1,70 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
+import classes from './Browse.module.css';
+import useFetch from '../../Hooks/useFetch';
 import SideTab from '../UI/SideTab';
-import Items from './Items/Items';
+import ItemCard from './Items/ItemCard';
+import Modal from '../UI/Modal';
+import ItemProvider from './Items/ItemStore/ItemProvider';
 
-const dummyDB = [
-  {
-    id: 1,
-    name: 'Cool Item',
-    price: '12',
-    stock: '52',
-  },
-  {
-    id: 2,
-    name: 'Cool Item 2',
-    price: '34',
-    stock: '23',
-  },
-  {
-    id: 3,
-    name: 'Cool Item 3',
-    price: '15',
-    stock: '47',
-  },
-  {
-    id: 4,
-    name: 'Cool Item 4',
-    price: '250',
-    stock: '8',
-  },
-  {
-    id: 5,
-    name: 'Cool Item 5',
-    price: '125',
-    stock: '300',
-  },
-];
+const Browse = (props) => {
+  const [showModal, setShowModal] = useState(false);
+  const [items, setItems] = useState([]);
+  const [showSideTab, setShowSideTab] = useState(true);
 
-const Browse = () => {
-  const [showSideTab, setShowSideTab] = useState(false);
+  const { isLoading, error, sendRequest: fetchItems } = useFetch();
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  useEffect(() => {
+    const loadItems = (itemObj) => {
+      const loadedItem = [];
+
+      for (const key in itemObj) {
+        loadedItem.push({
+          id: key,
+          name: itemObj[key].name,
+          description: itemObj[key].description,
+          price: itemObj[key].price,
+          stock: itemObj[key].stock,
+        });
+      }
+      setItems(loadedItem);
+    };
+
+    fetchItems(
+      {
+        url: 'https://browse-app-6069c-default-rtdb.firebaseio.com/items.json',
+      },
+      loadItems
+    );
+  }, [fetchItems]);
 
   const toggleSideTab = () => {
     setShowSideTab(!showSideTab);
-  }
+  };
 
-   return (
-    <>
-      <SideTab isShown={showSideTab}/>
-      <Items toggleTab={toggleSideTab} itemData={dummyDB}/>
-    </>
+  const cardDisplay = items.map((el) => (
+    <ItemCard
+      id={el.id}
+      key={el.id}
+      name={el.name}
+      price={el.price}
+      toggleTab={toggleSideTab}
+    />
+  ));
+
+  return (
+    <ItemProvider>
+      <Modal openModal={showModal} closeModal={toggleModal} />
+      <SideTab isShown={showSideTab} openModal={toggleModal} />
+      {isLoading ? (
+        <p>Loading data...</p>
+      ) : (
+        <div className={classes.browse}>{cardDisplay}</div>
+      )}
+    </ItemProvider>
   );
 };
 

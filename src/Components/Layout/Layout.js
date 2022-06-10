@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from '../Navigation/Navbar';
 import Browse from '../Sections/Browse';
+import Modal from '../UI/Modal';
 
-const Layout = () => {
+const Layout = (props) => {
+  
+
   return (
     <main>
       <Navbar />

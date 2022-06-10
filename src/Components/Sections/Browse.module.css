@@ -1,4 +1,4 @@
-.Items{
+.browse {
   left: 0;
   scroll-behavior: smooth;
   width: 70vw;
@@ -8,4 +8,9 @@
   flex-flow: wrap;
   box-sizing: content-box;
   margin: 12px;
+}
+
+.browseError {
+  text-align: center;
+  color: red;
 }
