@@ -51,6 +51,8 @@ const Browse = (props) => {
       key={el.id}
       name={el.name}
       price={el.price}
+      stock={el.stock}
+      description={el.description}
       toggleTab={toggleSideTab}
     />
   ));
