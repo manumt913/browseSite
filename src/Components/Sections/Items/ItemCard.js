@@ -7,8 +7,8 @@ import ItemContext from './ItemStore/ItemContext';
 const ItemCard = (props) => {
   const itemCtx = useContext(ItemContext);
 
-  const sendItemInfo = (id) => {
-    itemCtx.deselectItem(id);
+  const sendItemInfo = () => {
+    itemCtx.deselectItem()
     itemCtx.selectItem({
       id: props.id,
       name: props.name,
