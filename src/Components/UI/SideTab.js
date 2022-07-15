@@ -5,7 +5,6 @@ import ItemContext from '../Sections/Items/ItemStore/ItemContext';
 const SideTab = (props) => {
   const [displayTab, setDisplayTab] = useState(false);
   const itemCtx = useContext(ItemContext);
-  console.log(itemCtx.items);
 
   useEffect(() => {
     if (itemCtx.items.length === 0) {
@@ -14,6 +13,13 @@ const SideTab = (props) => {
       setDisplayTab(true);
     }
   }, [itemCtx]);
+
+  const closeTab = () => {
+    setDisplayTab(false);
+    setTimeout(function () {
+      itemCtx.deselectItem();
+    }, 500);
+  };
 
   return (
     <div
@@ -25,7 +31,12 @@ const SideTab = (props) => {
         <div>Loading</div>
       ) : (
         <>
-          <div className={classes.Image}>Image goes here</div>
+          <div className={classes.Image}>
+            Image goes here
+            <div className={classes.CloseButton} onClick={closeTab}>
+              x
+            </div>
+          </div>
           <div className={classes.lineDiv} />
           <h2 style={{ alignSelf: 'center', margin: '10px' }}>
             {itemCtx.items[0].name}

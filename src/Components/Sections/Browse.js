@@ -5,11 +5,11 @@ import SideTab from '../UI/SideTab';
 import ItemCard from './Items/ItemCard';
 import Modal from '../UI/Modal';
 import ItemProvider from './Items/ItemStore/ItemProvider';
+import Cart from './Items/Cart/Cart';
 
 const Browse = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [items, setItems] = useState([]);
-  const [showSideTab, setShowSideTab] = useState(true);
 
   const { isLoading, error, sendRequest: fetchItems } = useFetch();
 
@@ -41,9 +41,6 @@ const Browse = (props) => {
     );
   }, [fetchItems]);
 
-  const toggleSideTab = () => {
-    setShowSideTab(!showSideTab);
-  };
 
   const cardDisplay = items.map((el) => (
     <ItemCard
@@ -53,14 +50,13 @@ const Browse = (props) => {
       price={el.price}
       stock={el.stock}
       description={el.description}
-      toggleTab={toggleSideTab}
     />
   ));
 
   return (
     <ItemProvider>
-      <Modal openModal={showModal} closeModal={toggleModal} />
-      <SideTab isShown={showSideTab} openModal={toggleModal} />
+      <Cart openModal={showModal} closeModal={toggleModal} />
+      <SideTab openModal={toggleModal} />
       {isLoading ? (
         <p>Loading data...</p>
       ) : (

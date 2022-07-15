@@ -1,0 +1,63 @@
+.CartItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #00000033;
+}
+
+.CartItem h2 {
+  width: 25rem;
+  margin: 0 0 0.5rem 0;
+  color: #363636;
+}
+
+.ItemData {
+  width: 12.5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0, 250px;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.Price {
+  width: 2rem;
+  color: #575757;
+  align-self: flex-end;
+  font-weight: bold;
+}
+
+.Stock {
+  font-weight: bold;
+  border: 1px solid #ccc;
+  padding: 0.3rem 0.75rem;
+  border-radius: 8px;
+  color: #363636;
+}
+
+.CartButtons {
+  display: flex;
+  flex-direction: column;
+}
+
+.CartItem button {
+  font: inherit;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #474747;
+  border: 1px solid #474747;
+  width: 3rem;
+  text-align: center;
+  border-radius: 3px;
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: 1rem;
+  margin: 0.25rem;
+}
+
+.CartItem button:hover,
+.CartItem button:active {
+  background-color: #474747;
+  color: white;
+}

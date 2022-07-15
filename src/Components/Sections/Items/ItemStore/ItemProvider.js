@@ -23,7 +23,7 @@ const ItemProvider = (props) => {
   };
 
   const deselectItemFromTab = (id) => {
-    dispatchItemAction({type: 'DESELECT', id, id})
+    dispatchItemAction({type: 'DESELECT', id})
   }
 
   const itemContext = {

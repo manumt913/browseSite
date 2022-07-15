@@ -3,8 +3,8 @@
   flex-flow: column;
   align-content: center;
   position: fixed;
-  margin-top: 5vh;
-  height: 93.4%;
+  margin-top: 6.05vh;
+  height: 92.4%;
   width: 31vw;
   background-color: #f8f8f8c0;
   border-left: 2px solid #c2c2c2;
@@ -23,13 +23,34 @@
 }
 
 .Image {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: gray;
   height: 40%;
+
+}
+
+.CloseButton {
+  color: #3f3f3f;
+  cursor: pointer;
+  align-items: auto;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+}
+
+.CloseButton :hover {
+  color:#c2c2c2;
+  font-size: 25px;
 }
 
 .Description {
   text-align: left;
   margin: 20px;
+  height: 40vh;
+  overflow-y: scroll;
   margin-top: 10px;
   font-size: 18px;
 }
@@ -58,7 +79,7 @@
   border-color: #9e6e47;
   color: white;
   width: 25%;
-  margin: 25px auto;
+  margin: 10px auto 25px;
   padding: 18px 26px;
   text-align: center;
   display: inline;

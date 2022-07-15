@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import Navbar from '../Navigation/Navbar';
-import Browse from '../Sections/Browse';
+import classes from './Layout.module.css';
 import Modal from '../UI/Modal';
 
 const Layout = (props) => {
   
 
   return (
-    <main>
+    <main className={classes.main}>
       <Navbar />
-      <Browse />
+      <main >{props.children}</main>
     </main>
   );
 };
